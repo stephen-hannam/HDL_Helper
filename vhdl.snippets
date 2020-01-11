@@ -53,13 +53,50 @@ endsnippet
 
 snippet cases "case w default"
 case ($1) is
-		when  => ;
+		when $2     => ;
 		when others => ;
 end case;
 endsnippet
 
 snippet mapto "x => x,"
 $1 => $1,
+endsnippet
+
+snippet forgeninst "loop gen components"
+$1 : for i in natural range $2 to $3 generate
+begin
+	$1_i : $4
+	--generic map(
+	--)
+	port map(
+		$5 => $6(i),
+	);
+end generate;
+endsnippet
+
+snippet component "declare component"
+component $1
+	generic
+	(
+		$2 : $3
+	);
+	port
+	(
+	-- x : inout std_logic;
+		$4 : in  $5;
+		$6 : out $7
+	);
+end component;
+endsnippet
+
+snippet component_inst "instantiate component"
+$1 : $2
+	--generic map(
+	-- X => Y
+	--)
+	port map(
+		$3 => $4
+	);
 endsnippet
 
 snippet testbench "testbench"

@@ -1,7 +1,7 @@
 snippet module
 module $1($2);
 
-endmodule
+endmodule: $1
 endsnippet
 
 snippet class_uvm_para
@@ -13,7 +13,7 @@ class my_$1 extends uvm_$1#($4);
 		super.new(name, parent);
 	endfunction
 
-endclass
+endclass: my_$1
 endsnippet
 
 snippet class_uvm
@@ -25,11 +25,35 @@ class my_$1 extends uvm_$1;
 		super.new(name, parent);
 	endfunction
 
-endclass
+endclass: my_$1
 endsnippet
 
-snippet funcm
+snippet func_con
 function new(string name, $1 parent);
 	super.new(name, parent);
 endfunction
 endsnippet
+
+snippet func
+function ${VISUAL:void} $2($3);
+
+endfunction
+endsnippet
+
+snippet task
+task $1($2);
+
+endtask
+endsnippet
+
+snippet initial
+initial begin
+
+end
+endsnippet
+
+snippet package
+package $1;
+
+endpackage: $1
+endsnippet 
